@@ -44,7 +44,7 @@ using (DbContextRepository repos = new DummyRepository())
 
 ### Adding an object
 
-Just use `Add<T(T objectToAdd)` to add new object
+Just use `Add<T(T objectToAdd)` to add new object.
 
 ```csharp
 using (DbContextRepository repos = new DummyRepository())
@@ -57,7 +57,7 @@ using (DbContextRepository repos = new DummyRepository())
 
 ### Deleting an object
 
-Call `Delete<T(T objectToDelete)` to delete a state tracked object
+Call `Delete<T(T objectToDelete)` to delete a state tracked object.
 
 ```csharp
 using (DbContextRepository repos = new DummyRepository())
