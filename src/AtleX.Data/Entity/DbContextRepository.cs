@@ -51,6 +51,11 @@ namespace AtleX.Data.Entity
         {
         }
 
+        /// <summary>
+        /// Query data from the Context
+        /// </summary>
+        /// <typeparam name="TDataObject"></typeparam>
+        /// <returns></returns>
         public IQueryable<TDataObject> Query<TDataObject>() where TDataObject : class
         {
             return GetObjectSet<TDataObject>();
@@ -76,6 +81,15 @@ namespace AtleX.Data.Entity
             GetObjectSet<TDataObject>().Remove(objectToDelete);
         }
 
+        /// <summary>
+        /// Saves all the changes made to the underlying databases
+        /// </summary>
+        /// <remarks>
+        /// Entities decorated with <see cref="IHasCreated"/> and
+        /// <see cref="IHasLastModified"/> have their values updated
+        /// if necessary.
+        /// </remarks>
+        /// <returns></returns>
         public int SaveChanges()
         {
             if (Context.ChangeTracker.HasChanges())
