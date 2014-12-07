@@ -76,3 +76,7 @@ to created, entities.
 
 `IHasLastModified` is updated every time an entity is saved, but only if it has any of its values
 changed.
+
+## System requirements
+
+AtleX.Data is written in C# and targets .NET 4.5.
