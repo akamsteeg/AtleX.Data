@@ -1,7 +1,7 @@
 AtleX.Data
 ==========
 
-Small utility library to manage Entity Framework contexts.
+A small utility library to manage Entity Framework contexts.
 
 ## Usage
 
@@ -79,4 +79,9 @@ changed.
 
 ## System requirements
 
-AtleX.Data is written in C# and targets .NET 4.5.
+AtleX.Data is written in C# and targets .NET 4.5 and Entity Framework 6. The solution file is forget
+Visual Studio 2013.
+
+## License
+
+AtleX.Data is released under the MIT license, as described in LICENSE.txt.
