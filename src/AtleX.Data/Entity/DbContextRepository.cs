@@ -96,6 +96,10 @@ namespace AtleX.Data.Entity
             {
                 foreach (DbEntityEntry dbObject in Context.ChangeTracker.Entries())
                 {
+                    // Ignore unchanged items
+                    if (dbObject.State == EntityState.Unchanged)
+                        continue;
+
                     if (dbObject.Entity is IHasCreated)
                     {
                         IHasCreated createdObject = (IHasCreated)dbObject.Entity;
