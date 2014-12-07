@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtleX.Data", "AtleX.Data\AtleX.Data.csproj", "{4D7CD6B8-1210-42DF-9A94-624CAA70CF19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtleX.Data.Tests", "AtleX.Data.Tests\AtleX.Data.Tests.csproj", "{260E0CDF-89ED-4C70-87C6-C7B123DB2B22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4D7CD6B8-1210-42DF-9A94-624CAA70CF19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D7CD6B8-1210-42DF-9A94-624CAA70CF19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D7CD6B8-1210-42DF-9A94-624CAA70CF19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{260E0CDF-89ED-4C70-87C6-C7B123DB2B22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{260E0CDF-89ED-4C70-87C6-C7B123DB2B22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{260E0CDF-89ED-4C70-87C6-C7B123DB2B22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{260E0CDF-89ED-4C70-87C6-C7B123DB2B22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
