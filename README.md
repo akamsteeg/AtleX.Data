@@ -79,8 +79,8 @@ changed.
 
 ## System requirements
 
-AtleX.Data is written in C# and targets .NET 4.5 and Entity Framework 6. The solution file is forget
-Visual Studio 2013.
+AtleX.Data is written in C# and targets .NET 4.5 and Entity Framework 6. The solution file is a
+VS2013 one.
 
 ## License
 
