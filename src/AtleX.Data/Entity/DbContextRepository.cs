@@ -85,13 +85,21 @@ namespace AtleX.Data.Entity
         }
 
         /// <summary>
-        /// Remove an object
+        /// Remove multiple objects
         /// </summary>
         /// <typeparam name="TDataObject"></typeparam>
         /// <param name="objectToDelete"></param>
         public void Delete<TDataObject>(TDataObject objectToDelete) where TDataObject : class
         {
             GetObjectSet<TDataObject>().Remove(objectToDelete);
+        }
+
+        public void Delete<TDataObject>(IEnumerable<TDataObject> objectsToDelete) where TDataObject : class
+        {
+            foreach (TDataObject currentObject in objectsToDelete)
+            {
+                GetObjectSet<TDataObject>().Remove(currentObject);
+            }
         }
 
         /// <summary>
