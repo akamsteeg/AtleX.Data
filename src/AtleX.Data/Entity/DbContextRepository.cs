@@ -72,6 +72,19 @@ namespace AtleX.Data.Entity
         }
 
         /// <summary>
+        /// Add new objects for saving it to the database
+        /// </summary>
+        /// <typeparam name="TDataObject"></typeparam>
+        /// <param name="objectToAdd"></param>
+        public void Add<TDataObject>(IEnumerable<TDataObject> objectsToAdd) where TDataObject : class
+        {
+            foreach (TDataObject currentObject in objectsToAdd)
+            {
+                GetObjectSet<TDataObject>().Add(currentObject);
+            }
+        }
+
+        /// <summary>
         /// Remove an object
         /// </summary>
         /// <typeparam name="TDataObject"></typeparam>
