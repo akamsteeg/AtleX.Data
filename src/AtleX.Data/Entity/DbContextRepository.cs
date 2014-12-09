@@ -36,6 +36,15 @@ namespace AtleX.Data.Entity
             }
         }
 
+        /// <summary>
+        /// Creates and returns a new transaction
+        /// </summary>
+        /// <returns></returns>
+        public DbContextTransaction CreateTransaction()
+        {
+            return Context.Database.BeginTransaction();
+        }
+
         public void Dispose()
         {
             GC.SuppressFinalize(this);
