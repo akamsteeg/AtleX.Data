@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\DbContextRepository.cs" />
+    <Compile Include="Entity\DbContextBase.cs" />
     <Compile Include="Entity\IHasCreated.cs" />
     <Compile Include="Entity\IHasLastModified.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

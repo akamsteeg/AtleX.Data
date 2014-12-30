@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using AtleX.Data.Entity;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AtleX.Data.Tests.Entity.Mocks
 {
-    public class TestDbContext : DbContext
+    public class TestDbContext : DbContextBase
     {
         public TestDbContext()
         {
@@ -30,6 +31,11 @@ namespace AtleX.Data.Tests.Entity.Mocks
             mockDbSet.As<IQueryable<TestEntity>>().Setup(s => s.GetEnumerator()).Returns(queryableList.GetEnumerator());
 
             this.TestEntities = mockDbSet.Object;
+        }
+
+        public void OpenConnection()
+        {
+            return;
         }
 
         public DbSet<TestEntity> TestEntities { get; set; }
