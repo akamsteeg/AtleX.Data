@@ -12,6 +12,13 @@ namespace AtleX.Data.Entity
     {
         public override int SaveChanges()
         {
+            this.SetCreatedAndLastModified();
+
+            return base.SaveChanges();
+        }
+
+        protected void SetCreatedAndLastModified()
+        {
             if (this.ChangeTracker.HasChanges())
             {
                 foreach (DbEntityEntry dbObject in this.ChangeTracker.Entries())
@@ -34,8 +41,6 @@ namespace AtleX.Data.Entity
                     }
                 }
             }
-
-            return base.SaveChanges();
         }
     }
 }

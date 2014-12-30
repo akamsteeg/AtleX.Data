@@ -52,9 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\DbContextRepositoryTests.cs" />
+    <Compile Include="Entity\DbContextBaseTests.cs" />
     <Compile Include="Entity\Mocks\TestDbContext.cs" />
-    <Compile Include="Entity\Mocks\TestDbContextRepository.cs" />
     <Compile Include="Entity\Mocks\TestEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
