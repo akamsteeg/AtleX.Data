@@ -3,6 +3,14 @@ AtleX.Data
 
 A small utility library to extend Entity Framework contexts.
 
+## Installation
+
+```
+install-package AtleX.Data -Pre
+```
+
+The package is hosted [on NuGet.org](https://www.nuget.org/packages/AtleX.Data/)
+
 ## Usage
 
 Extend your context class with `DbContextBase` instead of `DbContext`:
