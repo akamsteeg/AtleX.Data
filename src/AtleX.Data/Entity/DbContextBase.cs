@@ -10,6 +10,18 @@ namespace AtleX.Data.Entity
 {
     public class DbContextBase : DbContext
     {
+        public DbContextBase()
+            : base()
+        {
+
+        }
+
+        public DbContextBase(string nameOrConnectionString)
+            : base(nameOrConnectionString)
+        {
+
+        }
+
         public override int SaveChanges()
         {
             this.SetCreatedAndLastModified();
