@@ -35,9 +35,11 @@ to created, entities.
 `IHasLastModified` is updated every time an entity is saved, but only if it has any of its values
 changed.
 
+The values are in UTC, to avoid timezone problems.
+
 ## System requirements
 
-AtleX.Data is written in C# and targets .NET 4.5 and Entity Framework 6. The solution file is a
+AtleX.Data is written in C#, builds against .NET 4.5 and uses Entity Framework 6. The solution file is a
 VS2013 one.
 
 ## License
