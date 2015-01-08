@@ -8,6 +8,10 @@ namespace AtleX.Data.Entity
 {
     public interface IHasLastModified
     {
-        DateTime? LastModified { get; set; }
+        /// <summary>
+        /// The date and time when the record was
+        /// last modified, in UTC
+        /// </summary>
+        DateTimeOffset? LastModified { get; set; }
     }
 }

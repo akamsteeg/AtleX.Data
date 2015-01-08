@@ -8,6 +8,10 @@ namespace AtleX.Data.Entity
 {
     public interface IHasCreated
     {
-        DateTime? Created { get; set; }
+        /// <summary>
+        /// The date and time when the record was
+        /// created, in UTC
+        /// </summary>
+        DateTimeOffset? Created { get; set; }
     }
 }

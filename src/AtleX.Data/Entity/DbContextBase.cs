@@ -44,12 +44,12 @@ namespace AtleX.Data.Entity
                         IHasCreated createdObject = (IHasCreated)dbObject.Entity;
                         if (createdObject.Created == null)
                         {
-                            createdObject.Created = DateTime.UtcNow;
+                            createdObject.Created = DateTimeOffset.UtcNow;
                         }
                     }
                     if (dbObject.Entity is IHasLastModified)
                     {
-                        ((IHasLastModified)dbObject.Entity).LastModified = DateTime.UtcNow;
+                        ((IHasLastModified)dbObject.Entity).LastModified = DateTimeOffset.UtcNow;
                     }
                 }
             }

@@ -13,13 +13,13 @@ namespace AtleX.Data.Tests.Entity.Mocks
         [Key]
         public string Name { get; set; }
 
-        public DateTime? Created
+        public DateTimeOffset? Created
         {
             get;
             set;
         }
 
-        public DateTime? LastModified
+        public DateTimeOffset? LastModified
         {
             get;
             set;
