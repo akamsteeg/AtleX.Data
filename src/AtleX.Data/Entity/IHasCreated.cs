@@ -12,6 +12,6 @@ namespace AtleX.Data.Entity
         /// The date and time when the record was
         /// created, in UTC
         /// </summary>
-        DateTimeOffset? Created { get; set; }
+        DateTimeOffset Created { get; set; }
     }
 }

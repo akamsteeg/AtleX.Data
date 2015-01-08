@@ -12,6 +12,6 @@ namespace AtleX.Data.Entity
         /// The date and time when the record was
         /// last modified, in UTC
         /// </summary>
-        DateTimeOffset? LastModified { get; set; }
+        DateTimeOffset LastModified { get; set; }
     }
 }
