@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>AtleX.Data</id>
-    <version>1.0.1-beta</version>
+    <version>1.0.2-beta</version>
     <title>AtleX.Data</title>
     <authors>Alex Kamsteeg</authors>
     <owners>Alex Kamsteeg</owners>
@@ -29,5 +29,6 @@ Changed the type of IHasCreated.Created and IHasLastModified.LastModified from D
   <files>
     <file src="..\src\AtleX.Data\bin\Release\AtleX.Data.pdb" target="lib\net45\" />
     <file src="..\src\AtleX.Data\bin\Release\AtleX.Data.dll" target="lib\net45\" />
+	<file src="..\src\AtleX.Data\docs\AtleX.Data.xml" target="lib\net45\" />
   </files>
 </package>
