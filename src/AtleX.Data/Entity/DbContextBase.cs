@@ -40,7 +40,10 @@ namespace AtleX.Data.Entity
         /// </returns>
         public override int SaveChanges()
         {
-            this.SetCreatedAndLastModified();
+            if (this.ChangeTracker.HasChanges())
+            {
+                this.SetCreatedAndLastModified();
+            }
 
             return base.SaveChanges();
         }
@@ -51,28 +54,56 @@ namespace AtleX.Data.Entity
         /// </summary>
         private void SetCreatedAndLastModified()
         {
-            if (this.ChangeTracker.HasChanges())
+            foreach (DbEntityEntry dbObject in this.ChangeTracker.Entries())
             {
-                foreach (DbEntityEntry dbObject in this.ChangeTracker.Entries())
+                if (dbObject.State != EntityState.Unchanged)
                 {
-                    // Ignore unchanged items
-                    if (dbObject.State == EntityState.Unchanged)
-                        continue;
+                    if (dbObject is IHasCreated)
+                        SetCreated((IHasCreated)dbObject);
 
-                    if (dbObject.Entity is IHasCreated)
-                    {
-                        IHasCreated createdObject = (IHasCreated)dbObject.Entity;
-                        if (createdObject.Created == null)
-                        {
-                            createdObject.Created = DateTimeOffset.UtcNow;
-                        }
-                    }
                     if (dbObject.Entity is IHasLastModified)
-                    {
-                        ((IHasLastModified)dbObject.Entity).LastModified = DateTimeOffset.UtcNow;
-                    }
+                        SetLastModified((IHasLastModified)dbObject);
                 }
             }
+        }
+
+        /// <summary>
+        /// Set the last modified date for the specified <see
+        /// cref="IHasLastModified"/> instance
+        /// </summary>
+        /// <param name="dbObject">
+        /// The <see cref="IHasLastModified"/> instance to set the last modified
+        /// date on
+        /// </param>
+        /// <returns>
+        /// The modified <see cref="IHasLastModified"/> instance
+        /// </returns>
+        private static IHasLastModified SetLastModified(IHasLastModified dbObject)
+        {
+            dbObject.LastModified = DateTimeOffset.UtcNow;
+
+            return dbObject;
+        }
+
+        /// <summary>
+        /// Set creation date for the specified <see
+        /// cref="IHasCreated"/> instance
+        /// </summary>
+        /// <param name="dbObject">
+        /// The <see cref="IHasCreated"/> instance to set the creation
+        /// date on
+        /// </param>
+        /// <returns>
+        /// The modified <see cref="IHasCreated"/> instance
+        /// </returns>
+        private static IHasCreated SetCreated(IHasCreated dbObject)
+        {
+            if (dbObject.Created == null)
+            {
+                dbObject.Created = DateTimeOffset.UtcNow;
+            }
+
+            return dbObject;
         }
     }
 }
