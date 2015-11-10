@@ -98,7 +98,9 @@ namespace AtleX.Data.Entity
         /// </returns>
         private static IHasCreated SetCreated(IHasCreated dbObject)
         {
-            if (dbObject.Created == null)
+            if (dbObject.Created == null 
+                || dbObject.Created == DateTimeOffset.MinValue
+                || dbObject.Created == DateTimeOffset.MaxValue)
             {
                 dbObject.Created = DateTimeOffset.UtcNow;
             }
