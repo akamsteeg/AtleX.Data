@@ -58,54 +58,42 @@ namespace AtleX.Data.Entity
             {
                 if (dbObject.State != EntityState.Unchanged)
                 {
-                    if (dbObject is IHasCreated)
-                        SetCreated((IHasCreated)dbObject);
+                    if (dbObject.Entity is IHasCreated)
+                    {
+                        SetCreated((IHasCreated)dbObject.Entity);
+                    }
 
                     if (dbObject.Entity is IHasLastModified)
-                        SetLastModified((IHasLastModified)dbObject);
+                    {
+                        SetLastModified((IHasLastModified)dbObject.Entity);
+                    }
                 }
             }
         }
 
         /// <summary>
-        /// Set the last modified date for the specified <see
-        /// cref="IHasLastModified"/> instance
+        /// 
         /// </summary>
-        /// <param name="dbObject">
-        /// The <see cref="IHasLastModified"/> instance to set the last modified
-        /// date on
-        /// </param>
-        /// <returns>
-        /// The modified <see cref="IHasLastModified"/> instance
-        /// </returns>
-        private static IHasLastModified SetLastModified(IHasLastModified dbObject)
+        /// <param name="entity"></param>
+        private static void SetCreated(IHasCreated entity)
         {
-            dbObject.LastModified = DateTimeOffset.UtcNow;
-
-            return dbObject;
+            if (entity.Created == null
+                || entity.Created == DateTimeOffset.MinValue
+                || entity.Created == DateTimeOffset.MaxValue
+                )
+            {
+                entity.Created = DateTimeOffset.UtcNow;
+            }
         }
 
         /// <summary>
-        /// Set creation date for the specified <see
-        /// cref="IHasCreated"/> instance
+        /// 
         /// </summary>
-        /// <param name="dbObject">
-        /// The <see cref="IHasCreated"/> instance to set the creation
-        /// date on
+        /// <param name="entity">
         /// </param>
-        /// <returns>
-        /// The modified <see cref="IHasCreated"/> instance
-        /// </returns>
-        private static IHasCreated SetCreated(IHasCreated dbObject)
+        private static void SetLastModified(IHasLastModified entity)
         {
-            if (dbObject.Created == null 
-                || dbObject.Created == DateTimeOffset.MinValue
-                || dbObject.Created == DateTimeOffset.MaxValue)
-            {
-                dbObject.Created = DateTimeOffset.UtcNow;
-            }
-
-            return dbObject;
+            entity.LastModified = DateTimeOffset.UtcNow;
         }
     }
 }
