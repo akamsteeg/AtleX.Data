@@ -9,4 +9,4 @@ echo %msbuild%
 %msbuild% ..\src\AtleX.Data.sln /p:Configuration=release /t:Clean,Build /maxcpucount
 
 :: Build NuGet package
-.\tools\nuget pack AtleX.Data.nuspec -OutputDirectory .\output\
+.\tools\nuget pack AtleX.Data.nuspec -symbols -OutputDirectory .\output\
