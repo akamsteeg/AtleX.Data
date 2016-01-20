@@ -8,8 +8,10 @@ namespace AtleX.Data.Entity
     public interface IHasCreated
     {
         /// <summary>
-        /// The date and time when the record was
-        /// created, in UTC
+        /// The date and time when the record was created, in UTC
+        /// 
+        /// When setting the value explicitly, it's converted to UTC when saving
+        /// the entity to the database
         /// </summary>
         DateTimeOffset Created { get; set; }
     }
