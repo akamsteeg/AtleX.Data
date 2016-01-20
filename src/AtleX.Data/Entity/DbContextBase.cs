@@ -8,7 +8,8 @@ namespace AtleX.Data.Entity
     /// A <see cref="DbContextBase"/> instance extends a <see cref="DbContext"/>
     /// with tracking of creation and last modified dates of the managed entities
     /// </summary>
-    public class DbContextBase : DbContext
+    public class DbContextBase 
+        : DbContext
     {
         /// <summary>
         /// Initializes a new instance of <see cref="DbContextBase"/>
@@ -72,9 +73,12 @@ namespace AtleX.Data.Entity
         }
 
         /// <summary>
-        /// 
+        /// Set the correct value to the Created property of the <see
+        /// cref="IHasCreated"/> instance
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="entity">
+        /// The <see cref="IHasCreated"/> instance
+        /// </param>
         private static void SetCreated(IHasCreated entity)
         {
             if (entity.Created == null
@@ -84,14 +88,20 @@ namespace AtleX.Data.Entity
             {
                 entity.Created = DateTimeOffset.UtcNow;
             }
+            else
+            {
+                entity.Created = entity.Created.ToUniversalTime();
+            }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="entity">
-        /// </param>
-        private static void SetLastModified(IHasLastModified entity)
+    /// <summary>
+    /// Set the correct value to the LastModified property of the <see
+    /// cref="IHasLastModified"/> instance
+    /// </summary>
+    /// <param name="entity">
+    /// The <see cref="IHasLastModified"/> instance
+    /// </param>
+    private static void SetLastModified(IHasLastModified entity)
         {
             entity.LastModified = DateTimeOffset.UtcNow;
         }
