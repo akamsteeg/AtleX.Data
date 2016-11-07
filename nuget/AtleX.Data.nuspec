@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>AtleX.Data</id>
-    <version>1.0.5-beta</version>
+    <version>1.0.5</version>
     <title>AtleX.Data</title>
     <authors>Alex Kamsteeg</authors>
     <owners>Alex Kamsteeg</owners>
@@ -23,6 +23,9 @@ A small utility library to extend Entity Framework contexts.
 See the project site for a complete list of functionality.
 	</description>
     <releaseNotes>
+v1.0.5
+-It has been in beta long enough. Release!
+
 v1.0.5-beta
 - Fixed not correctly converting the value of IHasCreated.Created to UTC when the value was explicitly set
 	
